@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        #topbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 72px;
+            transition: 0.4s;
+            background-color: #f7323f;
+            z-index: 220;
+
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        #topCenter {
+            position: relative;
+            width: 1024px;
+            height: 64px;
+            background: none;
+            margin: 0 auto;
+        }
+
+        ul,
+        ol,
+        li {
+            list-style: none;
+
+        }
+
+        #logo {
+            position: absolute;
+            top: 26px;
+            left: 31px;
+            width: 96px;
+            height: 20px;
+            margin: 0;
+            background: url(imgs/h1_logo_pc_w.png) 0 0 no-repeat;
+            background-size: 96px auto;
+        }
+
+        #aLogo {
+            display: block;
+            text-indent: -9999px;
+            text-decoration: none;
+        }
+
+        #search {
+            position: absolute;
+            border: none;
+            text-indent: -9999px;
+            top: 22px;
+            z-index: 10;
+            width: 30px;
+            height: 30px;
+            background: url(imgs/ico_srch_2.png) 50% 50% no-repeat;
+            background-size: 24px auto;
+
+        }
+
+        #searchClose {
+            position: absolute;
+            border: none;
+            text-indent: -9999px;
+            top: 22px;
+            right: 206px;
+            z-index: 10;
+            width: 30px;
+            height: 30px;
+            background: url(imgs/ico_close_2.png) 50% 50% no-repeat;
+            background-size: 24px auto;
+
+
+        }
+
+        button {
+            padding: 0;
+            cursor: pointer;
+            box-sizing: border-box;
+            margin: 0em;
+            font: 400 13.3333px Arial;
+            word-spacing: normal;
+            text-transform: none;
+            text-indent: 0px;
+            text-shadow: none;
+            display: inline-block;
+            text-align: center;
+            align-items: flex-start;
+            text-rendering: auto;
+        }
+
+        .menubar {
+            display: inline-block;
+            position: absolute;
+            top: 7px;
+            right: 31px;
+            width: 1600px;
+            text-align: right;
+            list-style: none;
+
+        }
+
+        .menubar li {
+            display: inline-block;
+            position: relative;
+            min-width: 53px;
+            min-height: 35px;
+            margin-left: 30px;
+            vertical-align: top;
+        }
+
+        .menubar li a {
+            display: inline-block;
+            font-size: 18px;
+            color: #ffffff;
+            letter-spacing: 0;
+        }
+
+        .menubar li button {
+            border: none;
+            padding: 0;
+            background: none;
+            font-size: 18px;
+            line-height: ;
+            color: #ffffff;
+            letter-spacing: 0;
+        }
+
+        button span {
+            position: relative;
+        }
+
+        .menubar li ul {
+            display: none;
+            position: absolute;
+            border-radius: 5px;
+            padding: 10px;
+            /*이부분수정함*/
+            background: #fff;
+            text-align: left;
+            box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.2);
+        }
+
+        .menubar li:hover ul {
+            display: block;
+            /* 마우스 커서 올리면 서브메뉴 보이게 하기 */
+            font-size: 14px;
+            line-height: 1;
+            min-width: auto;
+            min-height: auto;
+            margin: 0 0 14px 0;
+            vertical-align: top;
+        }
+
+        .menubar li:hover ul a {
+            color: #000000;
+
+        }
+
+        .list_03 {
+            top: 30px;
+            left: -65px;
+            width: 184px;
+        }
+
+        .mainContent {
+            height: 2000px;
+            width: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+            margin: 0px auto;
+            padding: 0px auto;
+            border: 0px;
+            left: 0;
+            right: 0;
+            position: absolute;
+            z-index: 30
+        }
+
+        .srch_bar {
+            position: absolute;
+            top: 72px;
+            left: 300px;
+            width: 60%;
+            height: 280px;
+            background-color: #ffffff;
+            border: 1px;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+
+        }
+
+        .srch_bar ul li {
+            margin-left: 10px;
+            margin-bottom: 3px;
+        }
+
+        .srch_bar li a {
+            color: green;
+        }
+
+        #keyword {
+            position: absolute;
+            left: 340px;
+            top: 22px;
+            width: 700px;
+            height: 25px;
+            font-size: 16px;
+            background-color: transparent;
+            border: none;
+        }
+
+        #search2 {
+            position: absolute;
+            border: none;
+            text-indent: -9999px;
+            top: 22px;
+            right: 596px;
+            z-index: 310;
+            width: 30px;
+            height: 30px;
+            background: url(imgs/ico_srch_2.png) 50% 50% no-repeat;
+            background-size: 24px auto;
+
+        }
+
+        .top-background {
+            position: absolute;
+            width: 100%;
+            height: 205px;
+            background-color: #F7323F;
+            margin: 0px 0px 0px -8px;
+        }
+
+        .top-background p {
+            position: absolute;
+            margin: 82px 0px 0px 310px;
+            font-size: 37px;
+            color: white;
+        }
+
+        .nav {
+            position: absolute;
+            width: 150px;
+            color: #646464;
+            margin: 240px 0px 0px 290px;
+        }
+
+        .nav-list {
+            list-style: none;
+            margin: 0;
+            padding: 10px 0;
+        }
+
+        .nav-item {
+            margin: 12px 0;
+        }
+
+        .nav-link {
+            display: block;
+            text-decoration: none;
+            padding: 4px 10px;
+            color: #646464;
+            font-size: 18px;
+        }
+
+        .nav-list li:nth-child(3) {
+            color: #e61c51;
+        }
+
+        .content {
+            position: absolute;
+            margin: 250px 0px 0px 550px;
+        }
+
+        .bbs {
+            width: 730px;
+            height: 850px;
+            margin-top: 10px;
+        }
+
+        .bbs td {
+            border-bottom: 1px solid #e6e6e6;
+            background-image: url('imgs/circlebutton.PNG');
+            background-repeat: no-repeat;
+            background-position: 0% 50%;
+        }
+
+        .bbs td a {
+            text-decoration: none;
+            color: white;
+            margin-left: 8px;
+        }
+
+        .align_rt {
+            float: right;
+            width: 724px;
+            margin-right: 31px;
+        }
+
+        .event {
+            background: #fff;
+        }
+
+        .event_list {
+            border-top: none;
+        }
+
+        .event_list li {
+            margin: 0 0 40px 0;
+            padding: 0 0 47px 0;
+            border-bottom: none;
+        }
+
+        .more_wrap .paging {
+            border-top: none;
+            margin-top: 0;
+        }
+
+
+        .paging {
+            /*    padding: 32px 0 0 0;
+     적용안되는듯.*/
+            text-align: center;
+
+        }
+
+        .paging button {
+            line-height: 0.5;
+            width: 32px;
+            height: 32px;
+            box-sizing: inherit;
+            align-items: center;
+            box-shadow: none;
+            background: none;
+            font-size: 13px;
+            text-align: center;
+            border-radius: 3px;
+            border: none;
+            line-height: 1.5;
+        }
+
+        button {
+            -webkit-appearance: button;
+            -webkit-writing-mode: horizontal-tb !important;
+            text-rendering: auto;
+            color: buttontext;
+            letter-spacing: normal;
+            word-spacing: normal;
+            text-transform: none;
+            text-indent: 0px;
+            text-shadow: none;
+            display: inline-block;
+            text-align: center;
+            align-items: flex-start;
+            cursor: default;
+            background-color: buttonface;
+            box-sizing: border-box;
+            margin: 0em;
+            font: 400 13.3333px Arial;
+            padding: 1px 6px;
+            border-width: 2px;
+            border-style: outset;
+            border-color: buttonface;
+            border-image: initial;
+            padding: 0;
+            cursor: pointer;
+        }
+        }
+
+        .paging .next {
+            background: url(imgs/ico_arr_gt_4.png) 50% 50% no-repeat;
+            background-size: 10px auto;
+            text-indent: -9999px;
+            margin-left: 5px;
+        }
+
+        .event_list li span {
+            display: block;
+            margin: 7px 0 12px 0;
+            font-size: 16px;
+            color: rgba(0, 0, 0, 0.56);
+        }
+
+        .event_list li span {
+            margin: 2px 0 13px 0;
+            color: rgba(0, 0, 0, 0.56);
+        }
+
+        footer {
+
+            position: absolute;
+            bottom: 0px;
+            overflow: hidden;
+            clear: both;
+            position: relative;
+            margin-top: 120px;
+            padding: 63px 31px 40px 31px;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            background: rgb(245, 245, 245);
+            font-size: 13px;
+            line-height: 20px;
+            color: rgba(0, 0, 0, 0.38);
+
+
+        }
+
+        footer .align {
+            width: 1024px;
+            margin: 0 auto;
+        }
+
+        footer.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        footer .link li {
+
+            float: left;
+            margin-bottom: 0;
+            line-height: normal;
+            font-style: normal;
+
+        }
+
+        footer .ico a {
+            margin-right: 25px;
+            font-size: 30px;
+
+        }
+
+        footer .ico a {
+            display: inline-block;
+            float: left;
+            margin-right: 10px;
+            font-size: 22px;
+            color: rgba(0, 0, 0, 0.48);
+        }
+
+        ul,
+        ol,
+        li {
+            list-style: none;
+        }
+
+        footer .link li a {
+            color: rgba(0, 0, 0, 0.87);
+        }
+
+        footer address {
+            line-height: 22px;
+        }
+
+        address,
+        caption,
+        em,
+        var {
+            font-style: normal;
+            font-weight: normal;
+    </style>
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(window).scroll(function() {
+                var scroll = $(window).scrollTop();
+                if (scroll > 30) {
+                    $("#topbar").css("background", "#ffffff");
+                    $(".menubar li a").css("color", "#000000");
+                    $(".menubar li button").css("color", "#000000");
+                    $('#logo').css('background', 'url(imgs/h1_logo_pc.png) 0 0 no-repeat');
+                    $('#search').css('background', 'url(imgs/ico_srch.png) 50% 50% no-repeat').css('background-size', '24px auto');
+                    $('#search2').css('background', 'url(imgs/ico_srch.png) 50% 50% no-repeat').css('background-size', '24px auto');
+                    $('.list_03 li a').css('color', '#000000');
+                    $('#searchClose').css('background', 'url(imgs/ico_close.png) 50% 50% no-repeat').css('background-size', '24px auto');
+
+
+                } else {
+                    $("#topbar").css("background", "#f7323f");
+                    $(".menubar li a").css("color", "#ffffff");
+                    $(".menubar li button").css("color", "#ffffff");
+                    $('#logo').css('background', 'url(imgs/h1_logo_pc_w.png) 0 0 no-repeat');
+                    $('#search').css('background', 'url(imgs/ico_srch_2.png) 50% 50% no-repeat').css('background-size', '24px auto');
+                    $('#search2').css('background', 'url(imgs/ico_srch_2.png) 50% 50% no-repeat').css('background-size', '24px auto');
+                    $('.list_03 li a').css('color', '#000000');
+                    $('#searchClose').css('background', 'url(imgs/ico_close_2.png) 50% 50% no-repeat').css('background-size', '24px auto');
+
+                }
+            })
+        });
+
+        $(document).ready(function() {
+
+            var srch_bar = $('.srch');
+            srch_bar.hide();
+            $('.mainContent').hide();
+        });
+        $(document).ready(function() {
+
+            var search = $('#search');
+            var search_close = $('#searchClose');
+            var srch_bar = $('.srch');
+            search.click(function() {
+                srch_bar.slideDown();
+                search.animate({
+                    left: 400
+                }, {
+                    complete: function() {
+                        search.hide();
+                    }
+                });
+                $('.menubar').hide();
+                $('.mainContent').show();
+            });
+            search_close.click(function() {
+                var offset = search.offset();
+                search.animate({
+                    left: 1047
+                });
+                srch_bar.css('display', 'none');
+                $('.menubar').show();
+                search.show();
+                $('.mainContent').hide();
+            });
+        });
+    </script>
+
+
+</head>
+
+<body>
+    <div class="frame">
+        <div>
+            <div class="header">
+                <div id="topbar">
+                    <div id="topCenter">
+                        <form class="srch">
+                            <button type="submit" id="search2" style="right: 1139px;">검색</button>
+                            <input type="text" id="keyword" placeholder="지역, 숙소명" autocomplete="off">
+                            <button type="button" id="searchClose" style="right: 400px;">취소</button>
+                            <div class="srch_bar">
+                                <strong style="margin-left: 45px;">추천 검색어</strong>
+                                <ul>
+                                    <li><a href="#">오션뷰</a></li>
+                                    <li><a href="#">파티룸</a></li>
+                                    <li><a href="#">야외수영장</a></li>
+                                    <li><a href="#">속초</a></li>
+                                    <li><a href="#">애견동반펜션</a></li>
+                                    <li><a href="#">여수</a></li>
+                                    <li><a href="#">제주도</a></li>
+                                    <li><a href="#">안면도</a></li>
+                                    <li><a href="#">남해</a></li>
+                                    <li><a href="#">부산</a></li>
+                                </ul>
+                            </div>
+                        </form>
+                        <h1 id="logo"><a id="aLogo" href="#/" title="여기어때">요기어때</a></h1>
+                        <button type="button" id="search" style="right: 396px;">검색</button>
+                        <ul class="menubar">
+                            <li><a href="#">내주변</a></li>
+                            <li><a href="#">예약내역</a></li>
+                            <li class="over">
+                                <button type="button"><span>더보기</span></button>
+                                <ul class="list_03">
+                                    <li><a href="#">공지사항</a></li>
+                                    <li><a href="#">이벤트</a></li>
+                                    <li><a href="#">혁신 프로젝트</a></li>
+                                    <li><a href="#">자주 묻는 질문</a></li>
+                                    <li><a href="#">1:1 문의</a></li>
+                                    <li><a href="#">약관 및 정책</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#"><span>로그인</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="top-background">
+                    <p>더보기</p>
+                </div>
+            </div>
+            <div class="container">
+                <div class="nav">
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="#" class="nav-link">공지사항</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">
+                                <font color="#e61c51"><b>이벤트</b></font>
+                            </a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">혁신 프로젝트</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">자주 묻는 질문</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">1:1 문의</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">약관 및 정책</a></li>
+                    </ul>
+                    <div class="mainContent">
+                    </div>
+                </div>
+                <div class="content">
+
+                    <div class="align_rt">
+
+                        <!-- Event -->
+                        <div class="event">
+
+                            <h1>
+                                <div class="mobile_top">이벤트</div>
+                            </h1>
+                            <!--                /*실제 코드시 밑에 부분 반복문 처리하여 증가 . (게시판처럼)*/-->
+
+
+
+                            <ul id="event" class="event_list">
+                                <li>
+                                    <!----> <b>친구에게 16만원 여행쿠폰세트 보내기 </b> <span>기간: 2019.06.25 ~ 2019.07.31</span> <a href="/more/eventView/682?page=0"><img src="//image.goodchoice.kr/event/mainbanner/5eadf889f9e51d60c289fd34add8200f.png" alt=""></a></li>
+                                <li>
+                                    <!----> <b>블랙프라이데이_롯데호텔 제주</b> <span>기간: 2019.07.26 ~ 2019.08.01</span> <a href="/more/eventView/721?page=0"><img src="//image.goodchoice.kr/event/mainbanner/0e7fe6b08a2d2c46b0cfcbf97b141f8e.jpg" alt=""></a></li>
+                                <li>
+                                    <!----> <b>올여름 호캉스 여어떻노</b> <span>기간: 2019.07.16 ~ 2019.07.29</span> <a href="/more/eventView/709?page=0"><img src="//image.goodchoice.kr/event/mainbanner/a47a4cefcda9bf342bbc44f5df051b2f.jpg" alt=""></a></li>
+                                <li>
+                                    <!----> <b>맞히면 쿠폰득! 경상도 편</b> <span>기간: 2019.07.23 ~ 2019.08.05</span> <a href="/more/eventView/716?page=0"><img src="//image.goodchoice.kr/event/mainbanner/383e900fa5d94477dba5cd50659b8529.jpg" alt=""></a></li>
+                                <li>
+                                    <!----> <b>떠나기 전 이마트에서 쓱-</b> <span>기간: 2019.07.15 ~ 2019.07.31</span> <a href="/more/eventView/706?page=0"><img src="//image.goodchoice.kr/event/mainbanner/0a530e029b023b5d1e47731167d61cc7.jpg" alt=""></a></li>
+                                <li>
+                                    <!----> <b>7월 무제한 모텔할인</b> <span>기간: 2019.07.01 ~ 2019.07.31</span> <a href="/more/eventView/690?page=0"><img src="//image.goodchoice.kr/event/mainbanner/0510d860ddb0a4e44557eae8ab2fcc05.png" alt=""></a></li>
+                                <li>
+                                    <!----> <b>여기어때 GOOD CHOICE</b> <span>기간: 2019.06.24 ~ 2019.07.31</span> <a href="/more/eventView/689?page=0"><img src="//image.goodchoice.kr/event/mainbanner/ce2fb897167af318bc823e12e5e42f4d.jpg" alt=""></a></li>
+                                <li>
+                                    <!----> <b>마케팅 알림 수신동의하세요!</b> <span>기간: 2019.07.18 ~ 2019.08.18</span> <a href="/more/eventView/707?page=0"><img src="//image.goodchoice.kr/event/mainbanner/a62ca7f4fd75e42d45494917d76e6e63.png" alt=""></a></li>
+                                <li>
+                                    <!----> <b>여기어때 딜카 제휴 이벤트</b> <span>기간: 2019.07.22 ~ 2019.08.11</span> <a href="/more/eventView/717?page=0"><img src="//image.goodchoice.kr/event/mainbanner/3d11943d57add7acba4477f6839cae05.jpg" alt=""></a></li>
+                                <li>
+                                    <!----> <b>가평 수상레저 이짝워뗘</b> <span>기간: 2019.07.19 ~ 2019.08.03</span> <a href="/more/eventView/715?page=0"><img src="//image.goodchoice.kr/event/mainbanner/0dfae256c86832b7eec102d3050f98aa.jpg" alt=""></a></li>
+                            </ul>
+
+                            <div id="pagination">
+                                <div class="paging">
+                                    <!----><button class="on">1</button><button>2</button><button>3</button><button>4</button><button>5</button><button class="next">다음</button></div>
+                            </div>
+
+                        </div>
+                        <!-- //Event -->
+
+                    </div>
+                </div>
+            </div>
+
+            <footer>
+                <div class="align">
+                    <ul class="link">
+                        <li><a href="#">회사소개</a><span>|</span></li>
+                        <li><a href="#">이용약관</a><span>|</span></li>
+                        <li><a href="#">개인정보처리방침</a><span>|</span></li>
+                        <li><a href="#">사업자 정보확인</a><span>|</span></li>
+                        <li><a href="#">여기어때 마케팅센터</a><span>|</span></li>
+                        <li><a href="#">액티비티 호스트센터</a><span>|</span></li>
+                        <li><a href="#">HOTEL 여기어때</a><span>|</span></li>
+                        <li><a href="#">콘텐츠산업진흥법에의한 표시</a></li>
+                    </ul>
+                    <br>
+                    <p>
+                        <b>고객행복센터 1670-6250</b>
+                        오전 9시 - 새벽 3시, 점심시간: 오후 12시 - 오후 1시
+                    </p>
+                    <address>
+                        <span>(주) 위드이노베이션</span>
+                        주소 : 서울특별시 강남구 봉은사로 479, 479타워 11층<br />
+                        대표이사 : 황재웅 | 사업자등록번호: 742-86-00224<br />
+                        통신판매번호 : 2017-서울강남-01779 | 관광사업자 등록번호: 제1026-24호<br />
+                        전화번호 : 1670-6250<br />
+                        전자우편주소 : help@goodchoice.kr<br />
+                        Copyright WITHINNOVATION Corp. All rights reserved.
+                    </address>
+                    <div class="ico">
+                        <a href="//www.facebook.com/goodchoiceofficial" target="_black" class="icon-ic_facebook"><img src="imgs/icon-ic_facebook.JPG"></a>
+                        <a href="//blog.within.co.kr" target="_black" class="icon-ic_blog"><img src="imgs/icon-ic_blog.JPG"></a>
+                    </div>
+                </div>
+        </footer>
+        </div>
+
+    </div>
+
+</body></html>

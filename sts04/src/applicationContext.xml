@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- applicationContext.xml -->
+
+<bean id="mod5" class="com.bit.day04.modul.Module5">
+	<property name="arr">
+		<array>
+			<value>a1</value>
+			<value>a2</value>
+			<value>a3</value>
+			<value>a4</value>
+		</array>
+	</property>
+	<property name="list">
+		<list>
+			<value>A1</value>
+			<value>B1</value>
+			<value>C1</value>
+			<value>D1</value>
+		</list>
+	</property>
+	<property name="set">
+		<set>
+			<value>aaaa</value>
+			<value>bbbb</value>
+			<value>cccc</value>
+			<value>dddd</value>
+			<value>eeee</value>
+		</set>
+	</property>
+	<property name="map">
+		<map>
+			<entry key="key1" value="val1"></entry>
+			<entry key="key2" value="val2"></entry>
+			<entry key="key3" value="val3"></entry>
+			<entry key="key4" value="val4"></entry>
+		</map>
+	</property>
+</bean>
+
+<bean id="module" class="com.bit.day04.modul.Module1">
+
+	<constructor-arg value="환영할까?"></constructor-arg> <!-- 생성자를 이용한 필드값 주입 -->
+	<!-- <property name="msg" value="환영할까?"></property> -->
+</bean>
+</beans>

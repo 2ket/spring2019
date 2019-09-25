@@ -1,7 +1,9 @@
 package com.bit.day09.model;
 
-import com.bit.day09.model.entity.Day09Vo;
+import org.springframework.stereotype.Component;
 
+import com.bit.day09.model.entity.Day09Vo;
+@Component(value = "dao")
 class Day09DaoImpl implements Day09Dao {
 
 	@Override
@@ -16,8 +18,11 @@ class Day09DaoImpl implements Day09Dao {
 	}
 
 	@Override
-	public void func1() {
-		System.out.println("func1 run,..");
+	public void func1() throws Exception {
+		int su=1-1;
+		if(su==0) {
+		throw new Exception();
+		}
 	}
 
 	@Override

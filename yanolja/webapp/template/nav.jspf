@@ -1,0 +1,21 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<div id="content" class="sub_wrap more_wrap">
+
+      <!-- Nav -->
+      <nav>
+    <ul>
+        <li><a href="/more/notice"
+                class="active">공지사항</a></li>
+        <li><a href="/more/event"
+                >이벤트</a></li>
+        <li><a href="/more/project"
+                >혁신 프로젝트</a></li>
+        <li><a href="/more/faq"
+                >자주 묻는 질문</a></li>
+        <li><a href="/more/inquiry"
+                >1:1 문의</a></li>
+        <li><a href="/more/terms"
+                >약관 및 정책</a></li>
+    </ul>
+</nav>
